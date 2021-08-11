@@ -194,6 +194,12 @@
             This page will dynamically load pictures from the web, and display
             them in a cool way!
           </p>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Search..."
+            onchange="loadImages(this.value)"
+          />
           <p>
             <a
               href="#"
@@ -358,6 +364,38 @@
         // console.log(img);
         img.style.display = "none";
       }
+
+      // [EXTRA]
+      //   7) After every button is pressed, display an alert for 5 seconds the result of the operation (es.: 20 images loaded)
+      function displayAlert(msg) {
+        let alertEl = document.create("div");
+        alertEl.setAttricutes(
+          "style",
+          "position:absolute;top:40%;left:20%;background-color:white;"
+        );
+        alertEl.innerHTML = msg;
+        setTimeout(function () {
+          el.parentNode.removeChild(el);
+        }, 5000);
+        document.body.appendChild(el);
+      }
+      let btns = document.getElementsByTagName("button");
+
+      for (let button of btns) {
+        button.addEventListener("click", function (e) {
+          console.log("helllo");
+        });
+      }
+      // btns.forEach(
+      //   (button) => console.log(button)
+      //   // button.addEventListener("click", function () {
+      //   //   displayAlert("hello");
+      //   // });
+      // );
+
+      //   8) Handle API errors gracefully, using alert components with the message inside
+      //   9) Add at the bottom of the page a carousel with "forest" images loaded by another API call
+      //   10) When the user clicks on the "VIEW" button inside the Card, open the specified image in a modal view
     </script>
   </body>
 </html>
