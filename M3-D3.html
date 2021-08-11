@@ -325,12 +325,14 @@
       function displayImages(images) {
         const row = document.querySelector(".image-row");
 
+        row.innerHTML = "";
+
         row.innerHTML = images
           .map(
             (image) =>
               `<div class="col-md-4">
                     <div class="card mb-4 shadow-sm">
-                      <img src ="${image.src.original}" class="card-img-top">
+                      <img src ="${image.src.small}" class="card-img-top">
                       <div class="card-body">
                   <p class="card-text">
                     ${image.photographer}
@@ -340,7 +342,7 @@
                       <button type="button" class="btn btn-sm btn-outline-secondary">
                         View
                       </button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">
+                      <button type="button" onclick=hideThis(this.closest(".card")) class="btn btn-sm btn-outline-secondary">
                         Hide
                       </button>
                     </div>
@@ -349,9 +351,13 @@
                 </div>
                     </div>
                   </div>`
-                  )
-                  .join("");
-                }
+          )
+          .join("");
+      }
+      function hideThis(img) {
+        // console.log(img);
+        img.style.display = "none";
+      }
     </script>
   </body>
 </html>
